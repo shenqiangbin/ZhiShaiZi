@@ -32,6 +32,8 @@ namespace ZhiShaiZi
             int count = 0;
             // 连着三次都是小且第四次也是小的情况出现了多少次
             int minCount = 0;
+            // 连着三次都是小且第四次是大的情况出现了多少次
+            int maxCount = 0;
 
             //从第一次开始看
             for (int i = 0; i < list.Count && i + 3 < list.Count; i++)
@@ -44,12 +46,18 @@ namespace ZhiShaiZi
                     {
                         minCount++;
                     }
+                    else
+                    {
+                        maxCount++;
+                    }
                 }
             }
 
             Console.WriteLine("连着三次都是小的情况出现了多少次 ： {0}", count);
             Console.WriteLine("连着三次都是小且第四次也是小的情况出现了多少次 ： {0}", minCount);
+            Console.WriteLine("连着三次都是小且第四次是大的情况出现了多少次 ： {0}", maxCount);
             Console.WriteLine("三次是小，第四次也是小的概率：{0}%", ((double)minCount / count) * 100);
+            Console.WriteLine("三次是小，第四次是大的概率：{0}%", ((double)maxCount / count) * 100);
 
             Console.WriteLine("按任意键退出");
             Console.ReadKey();
